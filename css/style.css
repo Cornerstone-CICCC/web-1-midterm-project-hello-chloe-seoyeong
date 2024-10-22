@@ -4,9 +4,10 @@
   box-sizing: border-box;
 }
 
-/* 2. Remove default margin */
+/* 2. Remove default margin, padding */
 * {
   margin: 0;
+  padding: 0;
 }
 
 body {
@@ -58,7 +59,15 @@ a {
 }
 
 header {
+  padding: 16px;
   background-color: #a8d5e2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header menu {
+  display: flex;
+  gap: 16px;
 }
 
 section {
