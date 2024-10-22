@@ -35,7 +35,6 @@ p, h1, h2, h3, h4, h5, h6 {
 p {
   text-wrap: pretty;
 }
-
 h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
 }
@@ -55,22 +54,3 @@ li {
 a {
   text-decoration: none;
 }
-
-header {
-  background-color: #a8d5e2;
-}
-
-section:first-child {
-  background-color: #f9a620;
-}
-section:nth-child(2) {
-  background-color: #ffd449;
-}
-section:nth-child(3) {
-  background-color: #548c2f;
-}
-section:nth-child(4) {
-  background-color: #104911;
-}
-
-/*# sourceMappingURL=style.css.map */
