@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap");
 /* 1. Use a more-intuitive box-sizing model */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -69,17 +70,47 @@ header menu {
   gap: 16px;
 }
 
+section {
+  font-family: "Gabarito", sans-serif;
+  padding: 250px 16px 150px 16px;
+  margin-top: -250px;
+  position: relative;
+  color: #000;
+}
 section:first-child {
   background-color: #f9a620;
+  z-index: 8;
 }
 section:nth-child(2) {
   background-color: #ffd449;
+  z-index: 6;
 }
 section:nth-child(3) {
   background-color: #548c2f;
+  z-index: 4;
 }
 section:nth-child(4) {
   background-color: #104911;
+  z-index: 2;
+}
+section:nth-child(even) {
+  border-bottom-right-radius: 150px 150px;
+}
+section:nth-child(odd) {
+  border-bottom-left-radius: 150px 150px;
+}
+section:last-child {
+  border-radius: 0;
+}
+section.is-dark {
+  color: #fff;
+}
+section h2 {
+  font-size: 32px;
+  font-weight: 600;
+}
+section p {
+  font-size: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */
