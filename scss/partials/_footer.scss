@@ -1,12 +1,15 @@
 @use "./variables";
 
 footer {
+  max-width: 1200px;
   height: 200px;
   background-color: #a8d5e2;
-  // background-color: #2d3047;
-  margin-top: -140px;
+  margin: -140px auto 0 auto;
   padding-top: 160px;
   text-align: center;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  margin-bottom: 30px;
 
   &.is-dark {
     color: variables.$light-font;

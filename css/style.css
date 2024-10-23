@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 /* 1. Use a more-intuitive box-sizing model */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -8,6 +8,10 @@
 * {
   margin: 0;
   padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -26,6 +30,15 @@ img, picture, video, canvas, svg {
 /* 6. Inherit fonts for form controls */
 input, button, textarea, select {
   font: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  background: none;
+  border: 0;
+}
+input:-internal-autofill-selected, button:-internal-autofill-selected, textarea:-internal-autofill-selected, select:-internal-autofill-selected {
+  background: none;
 }
 
 /* 7. Avoid text overflows */
@@ -58,26 +71,172 @@ a {
   text-decoration: none;
 }
 
+.header-mask {
+  display: none;
+}
+@media (min-width: 1200px) {
+  .header-mask {
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+    display: block;
+    position: fixed;
+    top: 0;
+    z-index: 9;
+  }
+}
+
 header {
-  padding: 16px;
+  padding: 24px;
   background-color: #a8d5e2;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  max-width: 1200px;
+}
+@media (min-width: 1200px) {
+  header {
+    top: 20px;
+    border-radius: 40px;
+    width: 1200px;
+    margin: 0 auto;
+  }
+}
+header.is-dark menu a,
+header.is-dark .logo span {
+  color: #fff;
+  border-color: #fff;
+}
+header .logo span {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+header .logo span.n {
+  border-right: 10px solid transparent;
+  border-left: 0 solid transparent;
+  border-bottom: 10px solid #000;
+  animation: moving_logo_n 4s ease-in-out;
+}
+@keyframes moving_logo_n {
+  0% {
+    border-right: 10px solid #000;
+    border-left: 0 solid #000;
+    border-bottom: 10px solid #000;
+    margin-right: -10px;
+  }
+  100% {
+    border-right: 10px solid transparent;
+    border-left: 0 solid transparent;
+    border-bottom: 10px solid #000;
+    margin-right: 0;
+  }
+}
+header .logo span.s {
+  width: 8px;
+  height: 8px;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  border-bottom: 10px solid #000;
+  animation: moving_logo_s 3s ease-in-out;
+}
+@keyframes moving_logo_s {
+  0% {
+    border-right: 5px solid #000;
+    border-left: 5px solid #000;
+    border-bottom: 10px solid #000;
+  }
+  100% {
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-bottom: 10px solid #000;
+  }
+}
+header .logo span.y {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #000;
+  animation: moving_logo_y 2s ease-in-out;
+}
+@keyframes moving_logo_y {
+  0% {
+    border-radius: 0;
+    margin-left: -10px;
+  }
+  100% {
+    border-radius: 50%;
+    margin-left: 0;
+  }
 }
 header menu {
   display: flex;
-  gap: 16px;
+  gap: 10px;
+  font-family: "Playfair Display", serif;
+}
+header menu a {
+  font-size: 14px;
+  color: #000;
+  letter-spacing: 1px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #000;
+}
+@media (min-width: 600px) {
+  header menu {
+    gap: 16px;
+  }
+  header menu a {
+    font-size: 16px;
+  }
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 section {
-  font-family: "Gabarito", sans-serif;
-  padding: 250px 16px 150px 16px;
-  margin-top: -250px;
+  font-family: "Playfair Display", serif;
+  padding: 220px 24px 70px 24px;
+  margin-top: -210px;
   position: relative;
   color: #000;
 }
+section.is-dark {
+  color: #fff;
+}
+section.is-dark#contact input,
+section.is-dark#contact textarea {
+  border-color: #fff;
+  color: #fff;
+}
+section.is-dark#contact a {
+  color: #fff;
+}
+section h1 {
+  font-family: "Gabarito", sans-serif;
+  letter-spacing: 1px;
+  font-size: 50px;
+}
+section h2 {
+  font-size: 32px;
+  font-weight: 600;
+  font-family: "Gabarito", sans-serif;
+  padding: 24px 0 16px 0;
+}
+section p {
+  font-size: 20px;
+}
 section:first-child {
+  position: relative;
+  padding-top: 300px;
   background-color: #f9a620;
   z-index: 8;
 }
@@ -93,24 +252,186 @@ section:nth-child(4) {
   background-color: #104911;
   z-index: 2;
 }
-section:nth-child(even) {
-  border-bottom-right-radius: 150px 150px;
-}
 section:nth-child(odd) {
+  border-bottom-right-radius: 150px 150px;
+  width: 100%;
+}
+section:nth-child(even) {
   border-bottom-left-radius: 150px 150px;
+  text-align: right;
 }
-section:last-child {
-  border-radius: 0;
+@media (min-width: 1200px) {
+  section {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+  section:first-child {
+    padding-top: 110px;
+    margin-top: -20px;
+  }
+  section:nth-child(odd) {
+    border-bottom-right-radius: 150px 150px;
+    width: 70%;
+  }
+  section:nth-child(even) {
+    border-bottom-left-radius: 150px 150px;
+    text-align: right;
+    margin-top: -540px;
+    padding-top: 440px;
+  }
 }
-section.is-dark {
-  color: #fff;
+section .skill-list {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
-section h2 {
-  font-size: 32px;
+section .skill-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+section .skill-list li i {
+  font-size: 35px;
+}
+section .skill-list li i.typescript {
+  background-color: #fff;
+  position: relative;
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+}
+section .skill-list li i.typescript:after {
+  content: "TS";
+  font-family: "Gabarito", sans-serif;
+  color: #000;
+  position: absolute;
+  bottom: -4px;
+  right: 2px;
+  font-style: normal;
+  font-size: 20px;
   font-weight: 600;
 }
-section p {
-  font-size: 20px;
+section .skill-list li span {
+  padding-top: 5px;
+}
+@media (min-width: 600px) {
+  section .skill-list {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+#about .photo {
+  border-radius: 100%;
+  width: 160px;
+  height: 160px;
+  overflow: hidden;
+  position: absolute;
+  top: 270px;
+  right: 20px;
+  z-index: -1;
+}
+#about p {
+  margin-top: 16px;
+}
+
+@media (min-width: 1200px) {
+  #projects .article-wrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+#projects article {
+  margin-top: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #000;
+}
+#projects article:last-child {
+  border-bottom: 0;
+}
+#projects article h3 {
+  margin-bottom: 8px;
+  font-size: 22px;
+}
+#projects article .project-image {
+  margin-top: 16px;
+  max-height: 400px;
+  overflow: hidden;
+  box-shadow: 0.3px 0.3px 10px rgba(0, 0, 0, 0.5);
+}
+#projects article .skill-list {
+  display: flex;
+  justify-content: flex-end;
+}
+#projects article .skill-list i {
+  font-size: 24px;
+}
+
+#contact ul {
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px;
+}
+#contact a {
+  color: #000;
+  font-size: 24px;
+}
+#contact .contact_form {
+  margin-bottom: 32px;
+}
+@media (min-width: 600px) {
+  #contact .contact_form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1200px) {
+  #contact .contact_form {
+    width: 80%;
+    align-content: flex-end;
+  }
+}
+#contact .contact_form .form-wrap {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  margin: 16px 0;
+}
+#contact .contact_form label {
+  margin-left: 16px;
+  margin-right: 16px;
+  vertical-align: top;
+}
+#contact .contact_form input,
+#contact .contact_form textarea {
+  border-bottom: 2px solid #000;
+  padding: 3px;
+  font-family: "Gabarito", sans-serif;
+}
+#contact .contact_form input[type=submit] {
+  border-radius: 20px;
+  background-color: #fff;
+  color: #000;
+  padding: 8px 16px;
+}
+#contact a.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+footer {
+  max-width: 1200px;
+  height: 200px;
+  background-color: #a8d5e2;
+  margin: -140px auto 0 auto;
+  padding-top: 160px;
+  text-align: center;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  margin-bottom: 30px;
+}
+footer.is-dark {
+  color: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */
