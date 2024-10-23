@@ -1,17 +1,49 @@
+@use "./variables";
 
 header {
-  padding: 16px;
+  padding: 24px;
   background-color: #a8d5e2;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
   
   .logo {
-
+    span {
+      display: inline-block;
+      &:first-child {
+        transform: scale(1.1);
+      }
+      &:nth-child(2) {
+        transform: scale(1.1);
+      }
+      &:nth-child(3) {
+        transform: scale(1.1);
+        margin-left: 2px;
+      }
+    }
   }
 
   menu {
     display: flex;
-    gap: 16px;
+    gap: 10px;
+    font-family: variables.$primary-font-style;
+    a {
+      font-size: 14px;
+      color: variables.$dark-font;
+      letter-spacing: 1px;
+      padding-bottom: 2px; 
+      border-bottom: 1px solid variables.$dark-font;
+    }
+    @media (min-width: 700px) {
+      gap: 16px;
+      a {
+        font-size: 16px;
+      }
+    }
   }
 }

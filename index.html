@@ -5,12 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chloe Seoyeong Portfolio</title>
   <link rel="stylesheet" href="./css/style.css">
+  <script src="https://kit.fontawesome.com/9183740193.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="container">
     <!-- s: header & menus -->
     <header>
-      <div class="logo">▲ ⏺ ◣</div>
+      <div class="logo">
+        <span>▲</span> 
+        <span>⏺</span>
+        <span>◣</span>
+      </div>
       <nav>
         <menu>
           <li><a href="#about">About</a></li>
@@ -27,15 +32,18 @@
       
       <!-- s: about -->
       <section id="about">
-        <h1>Hi there, I'm Chloe. 👋</h1>
+        <div class="photo">
+          <img src="./images/chloe.webp" alt="">
+        </div>
+        <h1>Hi there, <br>I'm Chloe. 👋</h1>
         <h2>About</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, consectetur.</p>
+        <p>I’m an aspiring frontend developer currently learning about web development. Although I’m still building my skills, I’m excited to take on new challenges and grow as a developer.</p>
       </section>
       <!-- e: about -->
 
       <!-- s: projects -->
       <section id="projects">
-        <h2>Projects</h2>
+        <h2>Projects & Work Experience</h2>
         <article>
           <h3>Portfolio</h3>
           <div>
@@ -49,18 +57,44 @@
       <!-- s: skills -->
       <section id="skills" class="is-dark">
         <h2>Skills</h2>
-        <div class="skills_ing">
+        <div class="skill-list ing">
           <ul>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>
+              <i class="fa-brands fa-html5" style="color: #e54b20;"></i>
+              <span>HTML</span>
+            </li>
+            <li>
+              <i class="fa-brands fa-css3-alt" style="color: #254add"></i>
+              <span>CSS</span>
+            </li>
+            <li>
+              <i class="fa-brands fa-js" style="color: #F0D91C"></i>
+              <span>Javascript</span>
+            </li>
+            <li>
+              <i class="fa-brands fa-figma"></i>
+              <span>Figma</span>
+            </li>
+            <li>
+              <i class="fa-brands fa-git"></i>
+              <span>git</span>
+            </li>
           </ul>
         </div>
-        <div class="skills_tobe">
+        <div class="skill-list tobe">
           <ul>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>
+              <i class="fa-brands fa-react"></i>
+              <span>react</span>
+            </li>
+            <li>
+              <i class="fa-brands fa-wordpress"></i>
+              <span>wordpress</span>
+            </li>
+            <li>
+              <i class="typescript"></i>
+              <span>typescript</span>
+            </li>
           </ul>
         </div>
       </section>
