@@ -1,5 +1,15 @@
+@use "./variables";
+
 footer {
   height: 200px;
   background-color: #a8d5e2;
+  // background-color: #2d3047;
   margin-top: -140px;
+  padding-top: 160px;
+  text-align: center;
+
+  &.is-dark {
+    color: variables.$light-font;
+  }
 }
+

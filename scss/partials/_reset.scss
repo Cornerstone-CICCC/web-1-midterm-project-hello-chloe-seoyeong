@@ -29,6 +29,16 @@ img, picture, video, canvas, svg {
 /* 6. Inherit fonts for form controls */
 input, button, textarea, select {
   font: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance:none;
+  appearance: none;
+  background: none;
+  border: 0;
+
+  &:-internal-autofill-selected {
+    background: none;
+  }
 }
 
 /* 7. Avoid text overflows */

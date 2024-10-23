@@ -3,6 +3,7 @@
 header {
   padding: 24px;
   background-color: #a8d5e2;
+  // background-color: #2d3047;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
   display: flex;
@@ -11,19 +12,87 @@ header {
   position: sticky;
   top: 0;
   z-index: 10;
+
+  @media (min-width: variables.$breakpoint-pc) {
+    top: 20px;
+    border-radius: 40px;
+    width: calc(100% - 48px);
+    margin: 0 auto;
+  }
+  
+  &.is-dark {
+    menu a,
+    .logo span {
+      color: variables.$light-font;
+      border-color: #fff;
+    }
+  }
   
   .logo {
     span {
       display: inline-block;
-      &:first-child {
-        transform: scale(1.1);
+      width: 0;
+      height: 0;
+      margin-left: 0;
+      margin-right: 0;
+
+      &.n {
+        border-right: 10px solid transparent;
+        border-left: 0 solid transparent;
+        border-bottom: 10px solid #000;
+        animation: moving_logo_n 4s ease-in-out;
+        @keyframes moving_logo_n {
+          0% {
+            border-right: 10px solid #000;
+            border-left: 0 solid #000;
+            border-bottom: 10px solid #000;
+            margin-right: -10px;
+          }
+
+          100% {
+            border-right: 10px solid transparent;
+            border-left: 0 solid transparent;
+            border-bottom: 10px solid #000;
+            margin-right: 0;
+          }
+        }
       }
-      &:nth-child(2) {
-        transform: scale(1.1);
+      &.s {
+        width: 8px;
+        height: 8px;
+        border-right: 5px solid transparent;
+        border-left: 5px solid transparent;
+        border-bottom: 10px solid #000;
+        animation: moving_logo_s 3s ease-in-out;
+        @keyframes moving_logo_s {
+          0% {
+            border-right: 5px solid #000;
+            border-left: 5px solid #000;
+            border-bottom: 10px solid #000;
+          }
+          100% {
+            border-right: 5px solid transparent;
+            border-left: 5px solid transparent;
+            border-bottom: 10px solid #000;
+          }
+        }
       }
-      &:nth-child(3) {
-        transform: scale(1.1);
-        margin-left: 2px;
+      &.y {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #000;
+        animation: moving_logo_y 2s ease-in-out;
+        @keyframes moving_logo_y {
+          0% {
+            border-radius: 0;
+            margin-left: -10px;
+          }
+          100% {
+            border-radius: 50%;
+            margin-left: 0;
+          }
+        }
       }
     }
   }
@@ -39,7 +108,7 @@ header {
       padding-bottom: 2px; 
       border-bottom: 1px solid variables.$dark-font;
     }
-    @media (min-width: 700px) {
+    @media (min-width: variables.$breakpoint-tablet) {
       gap: 16px;
       a {
         font-size: 16px;
