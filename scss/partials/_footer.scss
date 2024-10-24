@@ -3,16 +3,20 @@
 footer {
   max-width: 1200px;
   height: 200px;
-  background-color: #a8d5e2;
+  background-color: #a8d5e2; /* default color */
   margin: -140px auto 0 auto;
   padding-top: 160px;
   text-align: center;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
-  margin-bottom: 30px;
+  color: variables.$dark-font;
 
   &.is-dark {
     color: variables.$light-font;
+  }
+
+  @media (min-width: variables.$breakpoint-pc) {
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    margin-bottom: 30px;
   }
 }
 

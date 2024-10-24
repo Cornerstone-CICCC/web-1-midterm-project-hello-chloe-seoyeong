@@ -1,0 +1,21 @@
+@mixin makeLogo($right, $left, $bottom, $color) {
+  border-right: $right solid transparent;
+  border-left: $left solid transparent;
+  border-bottom: $bottom solid $color;
+  animation: moving_logo_n 4s ease-in-out;
+  @keyframes moving_logo_n {
+    0% {
+      border-right: 10px solid variables.$light-font;
+      border-left: 0 solid variables.$light-font;
+      border-bottom: 10px solid variables.$light-font;
+      margin-right: -10px;
+    }
+
+    100% {
+      border-right: 10px solid transparent;
+      border-left: 0 solid transparent;
+      border-bottom: 10px solid variables.$light-font;
+      margin-right: 0;
+    }
+  }
+}

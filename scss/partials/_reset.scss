@@ -9,10 +9,6 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   /* 3. Add accessible line-height */
   line-height: 1.5;
@@ -35,10 +31,6 @@ input, button, textarea, select {
   appearance: none;
   background: none;
   border: 0;
-
-  &:-internal-autofill-selected {
-    background: none;
-  }
 }
 
 /* 7. Avoid text overflows */
@@ -70,3 +62,6 @@ a {
   text-decoration: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
