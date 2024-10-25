@@ -1,4 +1,5 @@
 @use "./variables";
+@use "./mixins";
 
 .header-mask {
   display: none;
@@ -21,11 +22,18 @@ header {
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
   position: sticky;
   top: 0;
   z-index: 10;
+
+  @media (min-width: variables.$breakpoint-tablet) {
+    flex-direction: row;
+    gap: 0;
+  }
 
   @media (min-width: variables.$breakpoint-pc) {
     border-radius: 40px;
@@ -40,68 +48,27 @@ header {
     menu a,
     nav .button_palette {
       color: variables.$light-font;
-      border-color: #fff;
+      border-color: variables.$light-font;
     }
     .logo {
       span {
         &.n {
-          // 10px 0 10px variables.$light-font
           border-right: 10px solid transparent;
-          border-left: 0 solid transparent;
           border-bottom: 10px solid variables.$light-font;
-          animation: moving_logo_n 4s ease-in-out;
-          @keyframes moving_logo_n {
-            0% {
-              border-right: 10px solid variables.$light-font;
-              border-left: 0 solid variables.$light-font;
-              border-bottom: 10px solid variables.$light-font;
-              margin-right: -10px;
-            }
-    
-            100% {
-              border-right: 10px solid transparent;
-              border-left: 0 solid transparent;
-              border-bottom: 10px solid variables.$light-font;
-              margin-right: 0;
-            }
-          }
+          @include mixins.animation(moving_logo_n_light 4s ease-in-out);
         }
         &.s {
-          width: 8px;
-          height: 8px;
           border-right: 5px solid transparent;
           border-left: 5px solid transparent;
           border-bottom: 10px solid variables.$light-font;
-          animation: moving_logo_s 3s ease-in-out;
-          @keyframes moving_logo_s {
-            0% {
-              border-right: 5px solid variables.$light-font;
-              border-left: 5px solid variables.$light-font;
-              border-bottom: 10px solid variables.$light-font;
-            }
-            100% {
-              border-right: 5px solid transparent;
-              border-left: 5px solid transparent;
-              border-bottom: 10px solid variables.$light-font;
-            }
-          }
+          @include mixins.animation(moving_logo_s_light 3s ease-in-out);
         }
         &.y {
           width: 10px;
           height: 10px;
           border-radius: 50%;
           background-color: variables.$light-font;
-          animation: moving_logo_y 2s ease-in-out;
-          @keyframes moving_logo_y {
-            0% {
-              border-radius: 0;
-              margin-left: -10px;
-            }
-            100% {
-              border-radius: 50%;
-              margin-left: 0;
-            }
-          }
+          @include mixins.animation(moving_logo_y 2s ease-in-out);
         }
       }
     }
@@ -115,73 +82,43 @@ header {
 
       &.n {
         border-right: 10px solid transparent;
-        border-left: 0 solid transparent;
         border-bottom: 10px solid variables.$dark-font;
-        animation: moving_logo_n 4s ease-in-out;
-        @keyframes moving_logo_n {
-          0% {
-            border-right: 10px solid variables.$dark-font;
-            border-left: 0 solid variables.$dark-font;
-            border-bottom: 10px solid variables.$dark-font;
-            margin-right: -10px;
-          }
-
-          100% {
-            border-right: 10px solid transparent;
-            border-left: 0 solid transparent;
-            border-bottom: 10px solid variables.$dark-font;
-            margin-right: 0;
-          }
-        }
+        @include mixins.animation(moving_logo_n 4s ease-in-out);
       }
       &.s {
-        width: 8px;
-        height: 8px;
+        // width: 8px;
+        // height: 8px;
         border-right: 5px solid transparent;
         border-left: 5px solid transparent;
         border-bottom: 10px solid variables.$dark-font;
-        animation: moving_logo_s 3s ease-in-out;
-        @keyframes moving_logo_s {
-          0% {
-            border-right: 5px solid variables.$dark-font;
-            border-left: 5px solid variables.$dark-font;
-            border-bottom: 10px solid variables.$dark-font;
-          }
-          100% {
-            border-right: 5px solid transparent;
-            border-left: 5px solid transparent;
-            border-bottom: 10px solid variables.$dark-font;
-          }
-        }
+        @include mixins.animation(moving_logo_s 3s ease-in-out);
       }
       &.y {
         width: 10px;
         height: 10px;
         border-radius: 50%;
         background-color: variables.$dark-font;
-        animation: moving_logo_y 2s ease-in-out;
-        @keyframes moving_logo_y {
-          0% {
-            border-radius: 0;
-            margin-left: -10px;
-          }
-          100% {
-            border-radius: 50%;
-            margin-left: 0;
-          }
-        }
+        @include mixins.animation(moving_logo_y 2s ease-in-out);
       }
+    }
+    @media (min-width: variables.$breakpoint-pc) {
+      transform: scale(1.3);
     }
   }
 
   nav {
     display: flex;
-    gap: 32px;
+    align-items: center;
+    gap: 16px;
 
     .button_palette {
+      font-size: 16px;
       color: variables.$dark-font;
       @media (min-width: variables.$breakpoint-pc) {
-        font-size: 20px;
+        font-size: 18px;
+      }
+      i {
+        vertical-align: middle;
       }
     }
   }
