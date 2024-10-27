@@ -25,6 +25,12 @@ img, picture, video, canvas, svg {
 /* 6. Inherit fonts for form controls */
 input, button, textarea, select {
   font: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance:none;
+  appearance: none;
+  background: none;
+  border: 0;
 }
 
 /* 7. Avoid text overflows */
@@ -54,4 +60,8 @@ li {
 
 a {
   text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
 }

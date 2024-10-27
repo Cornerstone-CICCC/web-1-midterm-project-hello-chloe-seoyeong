@@ -1,5 +1,3 @@
-// import { colorchips } from "./colorChips";
-
 const colorchips = [
   [
     {
@@ -531,71 +529,4 @@ const colorchips = [
   ]
 ]
 
-const button_palette = document.querySelector(".button_palette");
-
-const header = document.querySelector("header");
-const about = document.getElementById("about");
-const projects = document.getElementById("projects");
-const skills = document.getElementById("skills");
-const contact = document.getElementById("contact");
-const footer = document.querySelector("footer");
-
-const sections = [ header, about, projects, skills, contact, footer];
-
-function changeColors() {
-  const randomColor = colorchips[Math.floor(Math.random() * colorchips.length)];
-
-  const firstColor = randomColor[0].color;
-  const aboutColor = randomColor[1].color;
-  const projectsColor = randomColor[2].color;
-  const skillsColor = randomColor[3].color;
-  const contactColor = randomColor[4].color;
-
-  const firstClass = randomColor[0].class;
-  const aboutClass = randomColor[1].class;
-  const projectsClass = randomColor[2].class;
-  const skillsClass = randomColor[3].class;
-  const contactClass = randomColor[4].class;
-
-  about.style.backgroundColor = aboutColor;
-  projects.style.backgroundColor = projectsColor;
-  skills.style.backgroundColor = skillsColor;
-  contact.style.backgroundColor = contactColor;
-  header.style.backgroundColor = firstColor;
-  footer.style.backgroundColor = firstColor;
-
-  header.classList.add(firstClass);
-  footer.classList.add(firstClass);
-  about.classList.add(aboutClass);
-  projects.classList.add(projectsClass);
-  skills.classList.add(skillsClass);
-  contact.classList.add(contactClass);
-
-}
-
-// function clearClass(el) {
-//   const currentClass = el.classList.value;
-//   console.log(currentClass);
-// }
-
-// clearClass(contact);
-// clearClass(about);
-// clearClass(header);
-// clearClass(skills);
-
-
-changeColors();
-
-const clearClass = function(el) {
-  const currentClass = el.classList.value;
-  el.classList.remove(currentClass);
-}
-
-const handleColorChange = function() {
-  sections.forEach((item) => {
-    clearClass(item);
-  });
-  changeColors();
-}
-button_palette.addEventListener("click", handleColorChange)
-
+export { colorchips };

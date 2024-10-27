@@ -4,13 +4,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chloe Seoyeong Portfolio</title>
+  <link rel="shortcut icon" href="./favicon.ico">
   <link rel="stylesheet" href="./css/style.css">
+  <script src="https://kit.fontawesome.com/9183740193.js" crossorigin="anonymous"></script>
+  
+  <!-- s: emailJS -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function() {
+      // https://dashboard.emailjs.com/admin/account
+      emailjs.init({
+        publicKey: "IFfWotEgis7HO_pGL",
+      });
+    })();
+  </script>
+  <script type="text/javascript">
+    window.onload = function() {
+      document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        // these IDs from the previous steps
+        emailjs.sendForm('service_vc76pdb', 'template_njuhfin', this)
+            .then(() => {
+                console.log('SUCCESS!');
+                this.reset();
+            }, (error) => {
+                console.log('FAILED...', error);
+            });
+      });
+    }
+  </script>
+  <!-- e: emailJS -->
+
 </head>
 <body>
   <div class="container">
+    <div class="header-mask"></div>
     <!-- s: header & menus -->
-    <header>
-      <div class="logo">▲ ⏺ ◣</div>
+    <header class="">
+
+      <div class="logo">
+        <span class="s"></span>
+        <span class="y"></span>
+        <span class="n"></span> 
+      </div>
+      
       <nav>
         <menu>
           <li><a href="#about">About</a></li>
@@ -18,7 +55,11 @@
           <li><a href="#skills">Skills</a></li>
           <li><a href="#contact">Contact</a></li>
         </menu>
+        <button type="button" class="button_palette">
+          <i class="fa-solid fa-palette"></i>
+        </button>
       </nav>
+
     </header>
     <!-- e: header & menus -->
 
@@ -27,50 +68,172 @@
       
       <!-- s: about -->
       <section id="about">
-        <h1>Hi there, I'm Chloe. 👋</h1>
-        <h2>About</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, consectetur.</p>
+        <div>
+          <div class="photo">
+            <img src="./images/chloe.webp" alt="my picture">
+          </div>
+          <h1>Hi there, <br>I'm Chloe. 👋</h1>
+          <h2>About</h2>
+          <p>I’m an aspiring frontend developer currently learning about web development.</p>
+          <p>Although I’m still building my skills, I’m excited to take on new challenges and grow as a developer.</p>
+        </div>
       </section>
       <!-- e: about -->
 
       <!-- s: projects -->
       <section id="projects">
-        <h2>Projects</h2>
-        <article>
-          <h3>Portfolio</h3>
-          <div>
-            <img src="" alt="">
+        <div class="section-wrap">
+          <h2>Projects & Work Experience</h2>
+          <div class="article-wrap">
+            <article>
+              <h3>Projects</h3>
+              <h4>Portfolio</h4>
+              <p>This is my first personal project.</p>
+              <div class="project-image">
+                <img src="./images/image_project_portfolio.png" alt="first project image">
+              </div>
+              <ul class="skill-list">
+                <li>
+                  <i class="fa-brands fa-html5"></i>
+                </li>
+                <li>
+                  <i class="fa-brands fa-css3-alt"></i>
+                </li>
+                <li>
+                  <i class="fa-brands fa-js"></i>
+                </li>
+                <li>
+                  <i class="fa-brands fa-figma"></i>
+                </li>
+                <li>
+                  <i class="fa-brands fa-git"></i>
+                </li>
+                <li>
+                  <i class="fa-brands fa-sass"></i>
+                </li>
+              </ul>
+            </article>
+            <article>
+              <h3>Work Experience</h3>
+              <h4>T world</h4>
+              <p>South Korea's telecom company.</p>
+              <ul class="skill-list">
+                <li>
+                  <i class="fa-brands fa-html5"></i>
+                </li>
+                <li>
+                  <i class="fa-brands fa-css3-alt"></i>
+                </li>
+                <li>
+                  <i class="fa-brands fa-git"></i>
+                </li>
+              </ul>
+            </article>
+            <article>
+              <h3>Work Experience</h3>
+              <h4>Lotte On</h4>
+              <p>Online shopping platform operated by Lotte in South Korea.</p>
+              <ul class="skill-list">
+                <li>
+                  <i class="fa-brands fa-html5"></i>
+                </li>
+                <li>
+                  <i class="fa-brands fa-css3-alt"></i>
+                </li>
+                <li>
+                  <i class="fa-brands fa-git"></i>
+                </li>
+                <li>
+                  <i class="fa-brands fa-sass"></i>
+                </li>
+              </ul>
+            </article>
           </div>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-        </article>
+        </div>        
       </section>
       <!-- e: projects -->
       
       <!-- s: skills -->
-      <section id="skills" class="is-dark">
-        <h2>Skills</h2>
-        <div class="skills_ing">
-          <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-        </div>
-        <div class="skills_tobe">
-          <ul>
-            <li></li>
-            <li></li>
-            <li></li>
+      <section id="skills" class="">
+        <div class="section-wrap">
+          <h2>Skills</h2>
+          <ul class="skill-list">
+            <li>
+              <i class="fa-brands fa-html5" style="color: #e54b20;"></i>
+              <span>HTML</span>
+            </li>
+            <li>
+              <i class="fa-brands fa-css3-alt" style="color: #254add"></i>
+              <span>CSS</span>
+            </li>
+            <li>
+              <i class="fa-brands fa-js" style="color: #F0D91C"></i>
+              <span>Javascript</span>
+            </li>
+            <li>
+              <i class="fa-brands fa-figma"></i>
+              <span>Figma</span>
+            </li>
+            <li>
+              <i class="fa-brands fa-git" style="color: #1F2328"></i>
+              <span>git</span>
+            </li>
+            <li>
+              <i class="fa-brands fa-sass" style="color: #CE649A"></i>
+              <span>sass</span>
+            </li>
+            <li>
+              <i class="fa-brands fa-npm" style="color: #CB0001"></i>
+              <span>npm</span>
+            </li>
           </ul>
         </div>
       </section>
       <!-- e: skills -->
 
       <!-- s: contact -->
-      <section id="contact" class="is-dark">
-        <h2>Contact</h2>
-        <div>
-
+      <section id="contact" class="">
+        <div class="section-wrap">
+          <h2>Contact</h2>
+          <form id="contact-form" class="contact_form">
+            <!-- To simplify the tutorial, the value is static. -->
+            <!-- <input type="hidden" name="contact_number" value="697483"> -->
+            <div class="form-wrap">
+              <label>Name</label>
+              <input class="user_name" type="text" name="user_name">
+            </div>
+            <div class="form-wrap">
+              <label>Email</label>
+              <input class="user_email" type="email" name="user_email">
+            </div>
+            <div class="form-wrap">
+              <label>Message</label>
+              <textarea name="message"></textarea>
+            </div>
+            <input type="submit" value="Send">
+          </form>
+          <ul>
+            <!-- <li>
+              <a href="mailto:nostopzero@gmail.com">
+                <i class="fa-regular fa-envelope"></i>
+              </a> -->
+            </li>
+            <li>
+              <a href="https://www.instagram.com/ro_chloe_seo_o/profilecard/?igsh=MXA4azVwbG4wZ2t2dQ==" target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/hello-chloe-seoyeong" target="_blank">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </li>
+            <li>
+              <a class="disabled" href="#" target="_blank">
+                <i class="fa-brands fa-linkedin"></i>
+              </a>
+            </li>
+          </ul>
         </div>
       </section>
       <!-- e: contact -->
@@ -78,11 +241,11 @@
     <!-- e: main -->
 
     <!-- s: footer -->
-    <footer>
-    
+    <footer class="">
+      <p>&copy; All rights reserved by Chloe.</p>
     </footer>
     <!-- e: footer -->
   </div>
-  <script src="index.js"></script>
+  <script src="./js/index.js"></script>
 </body>
 </html>
