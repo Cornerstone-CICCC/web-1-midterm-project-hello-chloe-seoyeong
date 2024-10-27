@@ -1,4 +1,5 @@
 @use './variables';
+@use './mixins';
 
 main {
   max-width: 1200px;
@@ -10,24 +11,11 @@ section {
   padding: 220px 24px 70px 24px;
   margin-top: -210px;
   position: relative;
-  color: variables.$dark-font;
+
+  @include mixins.color_change(variables.$dark-font, variables.$light-font);
 
   &.is-dark {
-    color: variables.$light-font;
-    &#contact {
-      input, 
-      textarea {
-        border-color: variables.$light-font;
-        color: variables.$light-font;
-      }
-      a {
-        color: variables.$light-font;
-      }
-      input[type="submit"] {
-        color: variables.$dark-font;
-        background-color: variables.$light-font;
-      }
-    }
+    @include mixins.color_change(variables.$light-font);
   }
 
   h1,
@@ -259,7 +247,6 @@ section {
     gap: 24px;
   }
   a {
-    color: variables.$dark-font;
     font-size: 24px;
   }
 
@@ -309,15 +296,12 @@ section {
       }
     input,
     textarea {
-      border-bottom: 2px solid variables.$dark-font;
       padding: 3px;
       font-family: variables.$heading-font-style;
     }
     input[type="submit"] {
       border-bottom: 0;
       border-radius: 20px;
-      color: variables.$light-font;
-      background-color: variables.$dark-font;
       padding: 8px 16px;
       @media (min-width: variables.$breakpoint-tablet) {
         height: 40px;

@@ -1,5 +1,6 @@
 @use "./variables";
 
+/* s: logo */
 @mixin keyframes($animation-name) {
   @-webkit-keyframes #{$animation-name} {
     @content;
@@ -76,5 +77,25 @@
     border-right: 5px solid transparent;
     border-left: 5px solid transparent;
     border-bottom: 10px solid variables.$light-font;
+  }
+}
+/* e: logo */
+
+/* */
+@mixin color_change($color-type, $color-other-type: variables.$dark-font) {
+  color: #{$color-type};
+  &#contact {
+    input, 
+    textarea {
+      border-bottom: 2px solid #{$color-type};
+      color: #{$color-type};
+    }
+    a {
+      color: #{$color-type};
+    }
+    input[type="submit"] {
+      color: #{$color-other-type};
+      background-color: #{$color-type};
+    }
   }
 }
