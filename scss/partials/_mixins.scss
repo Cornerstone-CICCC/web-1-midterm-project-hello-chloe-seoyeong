@@ -84,6 +84,13 @@
 /* */
 @mixin color_change($color-type, $color-other-type: variables.$dark-font) {
   color: #{$color-type};
+  
+  &#projects {
+    article {
+      border-color: #{$color-type};
+    }
+  }
+
   &#contact {
     input, 
     textarea {
