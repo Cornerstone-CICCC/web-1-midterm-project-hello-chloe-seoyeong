@@ -186,7 +186,7 @@ const colorchips = [
       class: "is-light"
     },{
       color: "#F2CC8F", 
-      class: "is-light        "
+      class: "is-light"
     }
   ],[
     {
@@ -493,23 +493,6 @@ const colorchips = [
     },{
       color: "#0F4C5C", 
       class: "is-dark"
-    }
-  ],[
-    {
-      color: "#FF9F1C", 
-      class: "is-light"
-    },{
-      color: "#FFBF69", 
-      class: "is-light"
-    },{
-      color: "#FFFFFF", 
-      class: "is-light"
-    },{
-      color: "#CBF3F0", 
-      class: "is-light"
-    },{
-      color: "#2EC4B6", 
-      class: "is-light"
     }
   ],[
     {

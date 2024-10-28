@@ -348,6 +348,9 @@ section {
   position: relative;
   color: #000;
 }
+section#projects article {
+  border-color: #000;
+}
 section#contact input,
 section#contact textarea {
   border-bottom: 2px solid #000;
@@ -362,6 +365,9 @@ section#contact input[type=submit] {
 }
 section.is-dark {
   color: #fff;
+}
+section.is-dark#projects article {
+  border-color: #fff;
 }
 section.is-dark#contact input,
 section.is-dark#contact textarea {
